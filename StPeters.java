@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.random.RandomGenerator;
 
 public class StPeters
 {
@@ -11,9 +12,11 @@ public class StPeters
     }
     
     public void optimizeEntryFee(){
-        //your code here -- after you write and test runGame() and flip()
+        for(double x = 1; x<3;x+=.1)
+            this.entryFee= x;
+        tester(1000);
+        
     }
-    
     public void tester(int howMany){
         int counter = 0;
         int countBreakEvenOrWin=0;
@@ -29,11 +32,22 @@ public class StPeters
     
     //returns the amount of money you win in the game
     private int runGame(){
-           //your code here
+        while(flip()==0){
+            pot= 2* pot;
+            
+        }
+        return pot;
+         
+            
+
     }
     
     //code to return a 0 or 1 simulating a flip
     private int flip(){
-        //your code here
-    }    
+        return r.nextInt(2);
+    }  
+    public static void main(String[] args) {
+        StPeters p1= new StPeters(1);
+        p1.optimizeEntryFee();
+    }  
 }
