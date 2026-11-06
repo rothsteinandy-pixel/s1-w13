@@ -16,6 +16,8 @@ public class DiceRoll
     }
     
     public int total ( ) {
+        this.roll();
         return roll1 + roll2;
+
     }
 }
